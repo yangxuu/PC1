@@ -147,7 +147,7 @@ export default {
   height: 49px;
   line-height: 49px;
   overflow: hidden;
-  background: #1f51aa;
+  background: #295ead;
 }
 .navbar li {
   width: 100px;
