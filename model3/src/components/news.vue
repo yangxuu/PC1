@@ -3,8 +3,8 @@
     <div class="banner-box"></div>
     <div class="box">
       <div class="safe auto com">新闻资讯</div>
-      <div class="container safe auto">
-        <div class="left">
+      <div class="container safe auto clear">
+        <div class="left clear">
           <div class="news" v-for="x in 8" :key="x">
             <div class="img-box"></div>
             <p class="title">新闻标题1》》》》》》》》》 》》</p>
@@ -13,13 +13,13 @@
               <span class="more">查看更多>></span>
             </p>
           </div>
-          <div>1111111</div>
-          <!-- <div class="bottom">
+          <div class="bottom">
             <div class="auto box">
               <span class="line"></span> 已经到底啦
               <span class="line"></span>
             </div>
-          </div>-->
+            <div class="m-t-40">分页</div>
+          </div>
         </div>
         <div class="right m-t-20">
           <div class="top">
@@ -138,15 +138,10 @@ export default {
   font-size: 16px;
   background: #3660ab;
 }
-.container {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid #000;
-}
 .container .left {
   width: 920px;
   height: 900px;
-  overflow: hidden;
+  float: left;
 }
 .container .left .news {
   width: 210px;
@@ -187,6 +182,7 @@ export default {
 .container .right {
   width: 260px;
   height: 900px;
+  float: right;
 }
 .icon-head {
   width: 100%;
@@ -246,4 +242,19 @@ export default {
  .box {
   width: 500px;
 } */
+.bottom {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 700px;
+  color: rgba(161, 161, 161, 1);
+}
+.line {
+  display: inline-block;
+  vertical-align: middle;
+  width: 200px;
+  height: 1px;
+  border: 0.5px solid #e0e0e0;
+}
 </style>
