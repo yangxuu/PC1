@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="banner-box">
-      <el-carousel trigger="click" arrow="always" height="500px">
+      <el-carousel arrow="always" height="500px">
         <el-carousel-item v-for="item in 2" :key="item"></el-carousel-item>
       </el-carousel>
     </div>
@@ -54,14 +54,33 @@
     <div class="eng-ex m-t-30">
       <div class="safe auto">
         <ul class="auto">
-          <!-- router-link切换路由 -->
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
+          <li @click="one" ref="b1">1</li>
+          <li @click="two" ref="b2">2</li>
+          <li @click="three" ref="b3">3</li>
         </ul>
-        <div class="m-t-30 eng-pro">
+        <div class="m-t-30 eng-pro" v-show="flag1">
           <div class="pro-show" v-for="x in 4" :key="x">
             <span class="img-box auto">
+              <img src alt>
+            </span>
+            <p class="des m-t-10">南京坪山交通轨道项目</p>
+            <span class="line auto m-t-30"></span>
+          </div>
+        </div>
+
+        <div class="m-t-30 eng-pro" v-show="flag2">
+          <div class="pro-show" v-for="x in 4" :key="x">
+            <span class="img-box auto" style="background:lightblue">
+              <img src alt>
+            </span>
+            <p class="des m-t-10">南京坪山交通轨道项目</p>
+            <span class="line auto m-t-30"></span>
+          </div>
+        </div>
+
+        <div class="m-t-30 eng-pro" v-show="flag3">
+          <div class="pro-show" v-for="x in 4" :key="x">
+            <span class="img-box auto" style="background:lightgreen">
               <img src alt>
             </span>
             <p class="des m-t-10">南京坪山交通轨道项目</p>
@@ -118,7 +137,40 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      flag1: true,
+      flag2: false,
+      flag3: false
+    };
+  },
+  mounted(){
+     this.$refs.b1.style.borderBottom = "3px solid #ec712e";
+  },
+  methods: {
+    one() {
+      this.flag1 = true;
+      this.flag3 = false;
+      this.flag2 = false;
+      this.$refs.b1.style.borderBottom = "3px solid #ec712e";
+      this.$refs.b2.style.borderBottom = "none";
+      this.$refs.b3.style.borderBottom = "none";
+    },
+    two() {
+      this.flag2 = true;
+      this.flag1 = false;
+      this.flag3 = false;
+      this.$refs.b2.style.borderBottom = "3px solid #ec712e";
+      this.$refs.b1.style.borderBottom = "none";
+      this.$refs.b3.style.borderBottom = "none";
+    },
+    three() {
+      this.flag3 = true;
+      this.flag2 = false;
+      this.flag1 = false;
+      this.$refs.b3.style.borderBottom = "3px solid #ec712e";
+      this.$refs.b1.style.borderBottom = "none";
+      this.$refs.b2.style.borderBottom = "none";
+    }
   }
 };
 </script>
@@ -282,10 +334,13 @@ export default {
   padding: 10px;
   text-align: center;
   margin: 0 8px;
+  cursor: pointer;
   color: rgba(37, 83, 164, 1);
-  border-bottom: 3px solid #ec712e;
   float: left;
 }
+/* .bd-bo {
+  border-bottom: 3px solid #ec712e;
+} */
 .eng-pro {
   width: 100%;
   overflow: hidden;
